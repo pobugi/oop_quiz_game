@@ -1,3 +1,4 @@
+import html
 from questions_db import QuestionBank
 from question_model import Question
 from quiz_brain import QuizBrain
@@ -8,11 +9,11 @@ question_objects = []
 
 for question in questions_bank:
     question_model = Question(
-        category=question['category'],
-        correct_answer=question['correct_answer'],
-        difficulty=question['difficulty'],
-        incorrect_answers=question['incorrect_answers'],
-        question=question['question']
+        category=html.unescape(question['category']),
+        correct_answer=html.unescape(question['correct_answer']),
+        difficulty=html.unescape(question['difficulty']),
+        incorrect_answers=html.unescape(question['incorrect_answers']),
+        question=html.unescape(question['question'])
     )
     question_objects.append(question_model)
 

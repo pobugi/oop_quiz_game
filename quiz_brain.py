@@ -1,3 +1,4 @@
+import html
 class QuizBrain:
 
     def __init__(self, question_list) -> None:
@@ -11,7 +12,7 @@ class QuizBrain:
         anwer_options.append(current_question.correct_answer)
         str_answer_options = ''
         for answer in set(anwer_options):
-            str_answer_options += answer + ' / '
+            str_answer_options += html.unescape(answer) + ' / '
 
         
         user_answer = input("#{}. {}\n(options: {}): \n".format(
